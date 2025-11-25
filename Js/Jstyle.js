@@ -47,3 +47,60 @@
         init();
     }
 })();
+
+/* Typing effect: simple loop that types and deletes words */
+(function(){
+    function startTyping() {
+        const el = document.getElementById('typed');
+        if (!el) return;
+
+        const words = [
+            'Aluno da IFPR',
+            'Aprendendo Python',
+            'Construindo projetos web',
+            'Curioso por programação'
+        ];
+
+        let wordIndex = 0;
+        let charIndex = 0;
+        let deleting = false;
+
+        const typeSpeed = 90;
+        const deleteSpeed = 40;
+        const pauseBetween = 1400;
+
+        function tick() {
+            const current = words[wordIndex];
+
+            if (!deleting) {
+                el.textContent = current.slice(0, charIndex + 1);
+                charIndex++;
+
+                if (charIndex === current.length) {
+                    deleting = true;
+                    setTimeout(tick, pauseBetween);
+                    return;
+                }
+                setTimeout(tick, typeSpeed);
+            } else {
+                el.textContent = current.slice(0, charIndex - 1);
+                charIndex--;
+                if (charIndex === 0) {
+                    deleting = false;
+                    wordIndex = (wordIndex + 1) % words.length;
+                    setTimeout(tick, 300);
+                    return;
+                }
+                setTimeout(tick, deleteSpeed);
+            }
+        }
+
+        tick();
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', startTyping);
+    } else {
+        startTyping();
+    }
+})();
