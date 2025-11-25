@@ -3,7 +3,7 @@
     function init(){
         const btn = document.getElementById('themeToggle');
         const icon = document.getElementById('themeIcon');
-        const root = document.documentElement;
+        const target = document.body; // usar body para corresponder ao CSS
 
         if (!btn) {
             console.warn('themeToggle (id="themeToggle") não encontrado no DOM.');
@@ -12,13 +12,13 @@
 
         function applyTheme(theme){
             if (theme === 'light') {
-                root.classList.add('light-theme');
+                target.classList.add('light-theme');
                 if (icon) {
                     icon.classList.remove('bx-moon');
                     icon.classList.add('bx-sun');
                 }
             } else {
-                root.classList.remove('light-theme');
+                target.classList.remove('light-theme');
                 if (icon) {
                     icon.classList.remove('bx-sun');
                     icon.classList.add('bx-moon');
@@ -32,10 +32,11 @@
         }
 
         const stored = localStorage.getItem('theme');
-        applyTheme(stored === 'light' ? 'light' : 'dark');
+        // padrão para 'light' se não houver valor armazenado
+        applyTheme(stored === 'dark' ? 'dark' : 'light');
 
         btn.addEventListener('click', () => {
-            const newTheme = root.classList.contains('light-theme') ? 'dark' : 'light';
+            const newTheme = target.classList.contains('light-theme') ? 'dark' : 'light';
             applyTheme(newTheme);
         });
     }

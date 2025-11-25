@@ -189,3 +189,67 @@ section {
     font-size: 1rem;
     line-height: 1.6;
 }
+
+/* TEMA CLARO */
+body.light-theme {
+    background-color: #ffffff !important;
+    color: #0b0b0b !important;
+}
+
+body.light-theme section {
+    background: transparent !important;
+}
+
+body.light-theme .navbar {
+    background-color: rgba(255, 255, 255, 0.95) !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+}
+
+body.light-theme .navbar-brand {
+    color: #0b0b0b !important;
+}
+
+body.light-theme .navbar-brand span {
+    color: rgba(18, 115, 241, 0.852) !important;
+}
+
+body.light-theme .nav-link {
+    color: rgba(0, 0, 0, 0.65) !important;
+}
+
+body.light-theme .nav-link:hover,
+body.light-theme .nav-link.active {
+    color: rgba(18, 115, 241, 0.852) !important;
+}
+
+body.light-theme .home-content h1,
+body.light-theme .service-box h3 {
+    color: #0b0b0b !important;
+}
+
+body.light-theme .home-content h3,
+body.light-theme .home-content p,
+body.light-theme .service-box p {
+    color: rgba(0, 0, 0, 0.75) !important;
+}
+
+body.light-theme .services {
+    background-color: transparent !important;
+}
+
+body.light-theme .service-box {
+    background-color: rgba(0, 0, 0, 0.03) !important;
+}
+
+body.light-theme .service-box i {
+    color: rgba(18, 115, 241, 0.852) !important;
+}
+
+body.light-theme .btn {
+    background-color: rgba(18, 115, 241, 0.852) !important;
+    color: #fff !important;
+}
+
+body.light-theme .home-img img {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
