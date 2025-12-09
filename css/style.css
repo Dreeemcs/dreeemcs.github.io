@@ -6,6 +6,10 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+:root {
+    scroll-padding-top: 100px; /* evita que âncoras fiquem escondidas sob a navbar fixa */
+}
+
 body {
     background-color: #0b0b0b !important;
     color: rgba(255, 255, 255, 0.85) !important;
@@ -205,6 +209,194 @@ section {
     line-height: 1.6;
 }
 
+/* SERVIÇOS - GALERIA COM IMAGENS */
+.services-page {
+    padding: 80px 10%;
+    text-align: center;
+}
+
+.services-page .heading {
+    font-size: 2.5rem;
+    color: white;
+    margin-bottom: 12px;
+}
+
+.services-page .subtitle {
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 1.05rem;
+    margin-bottom: 40px;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+}
+
+.service-card {
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+}
+
+.service-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+}
+
+.service-card .content {
+    padding: 18px 18px 20px;
+    text-align: left;
+}
+
+.service-card h4 {
+    color: white;
+    font-size: 1.25rem;
+    margin-bottom: 8px;
+}
+
+.service-card p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.98rem;
+    line-height: 1.5;
+    margin-bottom: 12px;
+}
+
+.service-meta {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.service-chip {
+    padding: 6px 10px;
+    background: rgba(18, 115, 241, 0.12);
+    border: 1px solid rgba(18, 115, 241, 0.35);
+    color: rgba(255, 255, 255, 0.9);
+    border-radius: 999px;
+    font-size: 0.82rem;
+}
+
+/* SEÇÃO DE PORTFÓLIO */
+.portfolio {
+    padding: 80px 10%;
+    text-align: center;
+    background-color: transparent;
+}
+
+.portfolio .heading {
+    font-size: 2.5rem;
+    color: white;
+    margin-bottom: 15px;
+}
+
+.portfolio-subtitle {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 50px;
+}
+
+.portfolio-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.portfolio-box {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    height: 280px;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.portfolio-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.portfolio-box:hover img {
+    transform: scale(1.05);
+}
+
+.portfolio-layer {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(18, 115, 241, 0.95), transparent 55%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 24px;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.portfolio-box:hover .portfolio-layer {
+    opacity: 1;
+}
+
+.portfolio-layer h4 {
+    font-size: 1.4rem;
+    color: white;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.portfolio-layer p {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 15px;
+    text-align: center;
+    line-height: 1.4;
+}
+
+.portfolio-links {
+    display: flex;
+    gap: 12px;
+}
+
+.portfolio-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background-color: white;
+    border-radius: 50%;
+    color: rgba(18, 115, 241, 0.95);
+    font-size: 1.4rem;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.portfolio-links a:hover {
+    transform: translateY(-5px);
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+@media (max-width: 768px) {
+    .portfolio-container {
+        grid-template-columns: 1fr;
+    }
+
+    .portfolio-box {
+        height: 240px;
+    }
+}
+
 /* TEMA CLARO */
 body.light-theme {
     background-color: #ffffff !important;
@@ -263,6 +455,46 @@ body.light-theme .service-box i {
 body.light-theme .btn {
     background-color: rgba(18, 115, 241, 0.852) !important;
     color: #fff !important;
+}
+
+body.light-theme .services-page .heading {
+    color: #0b0b0b !important;
+}
+
+body.light-theme .services-page .subtitle {
+    color: rgba(0, 0, 0, 0.75) !important;
+}
+
+body.light-theme .service-card {
+    background: rgba(0, 0, 0, 0.03);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+}
+
+body.light-theme .service-card h4 {
+    color: #0b0b0b !important;
+}
+
+body.light-theme .service-card p {
+    color: rgba(0, 0, 0, 0.75) !important;
+}
+
+body.light-theme .service-chip {
+    background: rgba(18, 115, 241, 0.08);
+    border-color: rgba(18, 115, 241, 0.25);
+    color: rgba(0, 0, 0, 0.8);
+}
+
+body.light-theme .portfolio .heading {
+    color: #0b0b0b !important;
+}
+
+body.light-theme .portfolio-subtitle {
+    color: rgba(0, 0, 0, 0.7) !important;
+}
+
+body.light-theme .portfolio-box {
+    background: rgba(0, 0, 0, 0.03);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
 }
 
 
